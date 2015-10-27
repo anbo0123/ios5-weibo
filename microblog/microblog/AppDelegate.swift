@@ -52,7 +52,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //        profileVc.title = "我"
 //        profileVc.tabBarItem.image = UIImage(named: "tabbar_profile")
 //        tabBar.addChildViewController(UINavigationController(rootViewController: profileVc))
-        
+      
         
         //设置窗口为主窗口 并显示
         window?.makeKeyAndVisible()

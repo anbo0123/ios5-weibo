@@ -1,14 +1,32 @@
 //
-//  ABMessageViewController.swift
+//  ABBaseTableViewController.swift
 //  microblog
 //
-//  Created by 安波 on 15/10/26.
+//  Created by 安波 on 15/10/27.
 //  Copyright © 2015年 anbo. All rights reserved.
 //
 
 import UIKit
 
-class ABMessageViewController: ABBaseTableViewController {
+class ABBaseTableViewController: UITableViewController {
+    
+    //设置用户的登陆的状态
+    let userLogin = false
+    
+    /// 重写loadView方法 设置显示的View
+    override func loadView() {
+        userLogin ? super.loadView() : setupVisitorView()
+    }
+    
+    /// 创建访客视图
+    func setupVisitorView(){
+        // 创建自定义的 View
+        view = ABVisitorView()
+        // 设置View的是背景颜色
+        view.backgroundColor = UIColor.whiteColor()
+    }
+    
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()

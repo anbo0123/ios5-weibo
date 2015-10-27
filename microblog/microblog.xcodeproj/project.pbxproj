@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		A254041A1BDE0C63006721BC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A25404191BDE0C63006721BC /* AppDelegate.swift */; };
 		A25404211BDE0C63006721BC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A25404201BDE0C63006721BC /* Assets.xcassets */; };
+		A2E2DE681BDE7F4800C3B598 /* ABVisitorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2E2DE671BDE7F4800C3B598 /* ABVisitorView.swift */; settings = {ASSET_TAGS = (); }; };
+		A2E2DE6C1BDE959900C3B598 /* ABBaseTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2E2DE6B1BDE959900C3B598 /* ABBaseTableViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		A2E2DE6E1BDEA0BB00C3B598 /* ABMainTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2E2DE6D1BDEA0BB00C3B598 /* ABMainTabBar.swift */; settings = {ASSET_TAGS = (); }; };
 		A2FBB3621BDE49D300E1726D /* ABMainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2FBB3611BDE49D300E1726D /* ABMainTabBarController.swift */; settings = {ASSET_TAGS = (); }; };
 		A2FBB3641BDE4B1B00E1726D /* ABHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2FBB3631BDE4B1B00E1726D /* ABHomeViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		A2FBB3661BDE4B3400E1726D /* ABMessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2FBB3651BDE4B3400E1726D /* ABMessageViewController.swift */; settings = {ASSET_TAGS = (); }; };
@@ -21,6 +24,9 @@
 		A25404191BDE0C63006721BC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A25404201BDE0C63006721BC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A25404251BDE0C63006721BC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A2E2DE671BDE7F4800C3B598 /* ABVisitorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ABVisitorView.swift; sourceTree = "<group>"; };
+		A2E2DE6B1BDE959900C3B598 /* ABBaseTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ABBaseTableViewController.swift; sourceTree = "<group>"; };
+		A2E2DE6D1BDEA0BB00C3B598 /* ABMainTabBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ABMainTabBar.swift; sourceTree = "<group>"; };
 		A2FBB3611BDE49D300E1726D /* ABMainTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ABMainTabBarController.swift; sourceTree = "<group>"; };
 		A2FBB3631BDE4B1B00E1726D /* ABHomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ABHomeViewController.swift; sourceTree = "<group>"; };
 		A2FBB3651BDE4B3400E1726D /* ABMessageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ABMessageViewController.swift; sourceTree = "<group>"; };
@@ -196,6 +202,7 @@
 			isa = PBXGroup;
 			children = (
 				A2FBB3611BDE49D300E1726D /* ABMainTabBarController.swift */,
+				A2E2DE6B1BDE959900C3B598 /* ABBaseTableViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -210,6 +217,8 @@
 		A2FBB3551BDE434900E1726D /* View */ = {
 			isa = PBXGroup;
 			children = (
+				A2E2DE671BDE7F4800C3B598 /* ABVisitorView.swift */,
+				A2E2DE6D1BDEA0BB00C3B598 /* ABMainTabBar.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -361,9 +370,12 @@
 				A2FBB3641BDE4B1B00E1726D /* ABHomeViewController.swift in Sources */,
 				A2FBB36A1BDE4B6000E1726D /* ABProfileViewController.swift in Sources */,
 				A254041A1BDE0C63006721BC /* AppDelegate.swift in Sources */,
+				A2E2DE681BDE7F4800C3B598 /* ABVisitorView.swift in Sources */,
 				A2FBB3621BDE49D300E1726D /* ABMainTabBarController.swift in Sources */,
 				A2FBB3681BDE4B4C00E1726D /* ABDiscoverViewController.swift in Sources */,
 				A2FBB3661BDE4B3400E1726D /* ABMessageViewController.swift in Sources */,
+				A2E2DE6E1BDEA0BB00C3B598 /* ABMainTabBar.swift in Sources */,
+				A2E2DE6C1BDE959900C3B598 /* ABBaseTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
