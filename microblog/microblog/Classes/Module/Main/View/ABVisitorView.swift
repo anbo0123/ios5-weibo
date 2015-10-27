@@ -8,7 +8,28 @@
 
 import UIKit
 
+/// 点击导航条上Item按钮 的代理方法
+protocol ABVisitorViewDelegate: NSObjectProtocol {
+    func visitorViewWillRegister()
+    func visitorViewWillLogin()
+}
+
 class ABVisitorView: UIView {
+    
+    // 声明代理属性
+    weak var visitorViewDelegate: ABVisitorViewDelegate?
+    
+    // MARK: - 按钮的点击事件
+    // 注册
+    func willRegister(){
+        print(__FUNCTION__)
+        visitorViewDelegate?.visitorViewWillRegister()
+    }
+    // 登陆
+    func willLogin(){
+        print(__FUNCTION__)
+        visitorViewDelegate?.visitorViewWillLogin()
+    }
     
     // MARK: - 构造函数
     override init(frame: CGRect) {
@@ -150,6 +171,8 @@ class ABVisitorView: UIView {
         button.setBackgroundImage(UIImage(named: "common_button_white_disable"), forState: UIControlState.Normal)
         // 设置按钮的显示大小
         button.sizeToFit()
+        // 监听按钮的点击事件
+        button.addTarget(self, action: "willRegister", forControlEvents: UIControlEvents.TouchUpInside)
         // 返回
         return button
     }()
@@ -166,6 +189,8 @@ class ABVisitorView: UIView {
         button.setBackgroundImage(UIImage(named: "common_button_white_disable"), forState: UIControlState.Normal)
         // 设置按钮的显示大小
         button.sizeToFit()
+        // 监听按钮的点击事件
+        button.addTarget(self, action: "willLogin", forControlEvents: UIControlEvents.TouchUpInside)
         // 返回
         return button
     }()

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ABBaseTableViewController: UITableViewController {
+class ABBaseTableViewController: UITableViewController,ABVisitorViewDelegate {
     
     //设置用户的登陆的状态
     let userLogin = false
@@ -44,14 +44,26 @@ class ABBaseTableViewController: UITableViewController {
         }else if self is ABProfileViewController {
 //            print("ABProfileViewController")
             visitorView?.setupInfo("visitordiscover_image_profile", message: "登录后，你的微博、相册、个人资料会显示在这里，展示给别人")
-            
-            
-            // 设置导航条上的左右两个Item
-            navigationItem.leftBarButtonItem = UIBarButtonItem(title: "注册", style: UIBarButtonItemStyle.Plain, target: self, action: "")
-            navigationItem.rightBarButtonItem = UIBarButtonItem(title: "登陆", style: UIBarButtonItemStyle.Plain, target: self, action: "")
         }
+        
+        // 指定代理
+        visitorView?.visitorViewDelegate = self
+        
+        // 设置导航条上的左右两个Item
+        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "注册", style: UIBarButtonItemStyle.Plain, target: self, action: "visitorViewWillRegister")
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "登陆", style: UIBarButtonItemStyle.Plain, target: self, action: "visitorViewWillLogin")
         
     }
     
+    
+    // MARK: - 按钮的点击事件
+    /// Item 注册事件
+    func visitorViewWillRegister(){
+        print(__FUNCTION__)
+    }
+    /// Item 登陆事件
+    func visitorViewWillLogin(){
+        print(__FUNCTION__)
+    }
 
 }

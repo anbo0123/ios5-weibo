@@ -16,6 +16,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         
+        // 设置全局外观
+        setupAppearence()
+        
         // 创建窗口
         window = UIWindow(frame: UIScreen.mainScreen().bounds)
         
@@ -56,8 +59,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         //设置窗口为主窗口 并显示
         window?.makeKeyAndVisible()
-        
         return true
+    }
+    
+    /// 设置全局外观
+    private func setupAppearence(){
+        UINavigationBar.appearance().tintColor = UIColor.orangeColor()
+        UITabBar.appearance().tintColor = UIColor.orangeColor()
     }
 
 }

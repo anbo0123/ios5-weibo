@@ -28,6 +28,7 @@ class ABMainTabBarController: UITabBarController {
         
         // 设置全局选中颜色
         tabBar.tintColor = UIColor.orangeColor()
+        
 
         //首页
         let homeVc = ABHomeViewController()
