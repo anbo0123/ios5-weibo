@@ -22,8 +22,13 @@ class ABVisitorView: UIView {
     
     /// 准备UI 
     func prepareUI(){
+        //设置背景色
+        backgroundColor = UIColor(white: 237 / 255, alpha: 1)
+        
         // 添加子控件
         addSubview(iconView)
+        // 添加遮盖视图
+        addSubview(coverView)
         addSubview(homeView)
         addSubview(messageLabel)
         addSubview(registerButton)
@@ -32,6 +37,8 @@ class ABVisitorView: UIView {
         // 设置约束
         //取消在懒加载中设置的尺寸约束
         iconView.translatesAutoresizingMaskIntoConstraints = false
+        // 取消在懒加载中设置的尺寸约束
+        coverView.translatesAutoresizingMaskIntoConstraints = false
         homeView.translatesAutoresizingMaskIntoConstraints = false
         messageLabel.translatesAutoresizingMaskIntoConstraints = false
         registerButton.translatesAutoresizingMaskIntoConstraints = false
@@ -43,6 +50,16 @@ class ABVisitorView: UIView {
         self.addConstraint(NSLayoutConstraint(item: iconView, attribute: NSLayoutAttribute.CenterX, relatedBy: NSLayoutRelation.Equal, toItem: self, attribute: NSLayoutAttribute.CenterX, multiplier: 1, constant: 0))
         // Y 
         self.addConstraint(NSLayoutConstraint(item: iconView, attribute: NSLayoutAttribute.CenterY, relatedBy: NSLayoutRelation.Equal, toItem: self, attribute: NSLayoutAttribute.CenterY, multiplier: 1, constant: -100))
+        
+        // 遮盖视图
+        // Left
+        self.addConstraint(NSLayoutConstraint(item: coverView, attribute: NSLayoutAttribute.Left, relatedBy: NSLayoutRelation.Equal, toItem: self, attribute: NSLayoutAttribute.Left, multiplier: 1, constant: 0))
+        // Right
+        self.addConstraint(NSLayoutConstraint(item: coverView, attribute: NSLayoutAttribute.Right, relatedBy: NSLayoutRelation.Equal, toItem: self, attribute: NSLayoutAttribute.Right, multiplier: 1, constant: 0))
+        // Top
+        self.addConstraint(NSLayoutConstraint(item: coverView, attribute: NSLayoutAttribute.Top, relatedBy: NSLayoutRelation.Equal, toItem: self, attribute: NSLayoutAttribute.Top, multiplier: 1, constant: 0))
+        // Bottom
+        self.addConstraint(NSLayoutConstraint(item: coverView, attribute: NSLayoutAttribute.Bottom, relatedBy: NSLayoutRelation.Equal, toItem: registerButton, attribute: NSLayoutAttribute.Bottom, multiplier: 1, constant: 0))
         
         // 小房子
         // X 
@@ -78,7 +95,6 @@ class ABVisitorView: UIView {
         // Height 
         self.addConstraint(NSLayoutConstraint(item: loginButton, attribute: NSLayoutAttribute.Height, relatedBy: NSLayoutRelation.Equal, toItem: registerButton, attribute: NSLayoutAttribute.Height, multiplier: 1, constant: 0))
         
-        
     }
     
     // MARK: - 懒加载
@@ -111,7 +127,7 @@ class ABVisitorView: UIView {
         // 创建label
         let label = UILabel()
         // 设置文字内容
-        label.text = "关注一些人,看看有什么惊喜!关注一些人,看看有什么惊喜!"
+        label.text = "关注一些人,看看有什么惊喜!"
         // 设置文字的颜色
         label.textColor = UIColor.lightGrayColor()
         // 设置自动换行
@@ -148,8 +164,54 @@ class ABVisitorView: UIView {
         button.setTitleColor(UIColor.lightGrayColor(), forState: UIControlState.Normal)
         // 设置按钮图片
         button.setBackgroundImage(UIImage(named: "common_button_white_disable"), forState: UIControlState.Normal)
+        // 设置按钮的显示大小
+        button.sizeToFit()
         // 返回
         return button
     }()
+    
+    /// 遮盖视图
+    private lazy var coverView: UIImageView = {
+        //获得Image
+        let image = UIImage(named: "visitordiscover_feed_mask_smallicon")
+        //返回coverView
+        return UIImageView(image: image)
+    }()
+    
+    
+    /**
+    设置访客视图信息
+        不同页面设置不同的信息
+    
+    - parameter imageName: 图片名称
+    - parameter message:   信息内容
+    */
+    func setupInfo(imageName: String, message: String){
+        // 改变iconView的图片
+        iconView.image = UIImage(named: imageName)
+        // 改变信息的内容
+        messageLabel.text = message
+        messageLabel.sizeToFit()
+        // 隐藏小房子
+        homeView.hidden = true
+        // 将遮盖视图方在最下面
+        sendSubviewToBack(coverView)
+    }
+    
+    /// 旋转动画
+    func startRotationAnimation(){
+        // 创建动画
+        let animation = CABasicAnimation(keyPath: "transform.rotation")
+        // 设置动画相关属性
+        animation.toValue = 2 * M_PI // 旋转角度
+        animation.duration = 10  // 持续时间
+        animation.repeatCount = MAXFLOAT  // 循环次数
+        
+        // 完成动画时，不能立即移除动画，否则在切换tabBar或退出桌面，再切回首页时 动画会停止
+        animation.removedOnCompletion = false
+        
+        // 为转轮添加动画
+        iconView.layer.addAnimation(animation, forKey: "HomeRotation")
+    }
 
 }

@@ -19,12 +19,12 @@ class ABMainTabBarController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // 创建一个自定义的tabBar
-        let newTabBar = ABMainTabBar()
-        // 撰写按钮的监听
-        newTabBar.composeButton.addTarget(self, action: "composeButtonClick", forControlEvents: UIControlEvents.TouchUpInside)
-        // 使用KVC设置值
-        setValue(newTabBar, forKey: "tabBar")
+//        // 创建一个自定义的tabBar
+//        let newTabBar = ABMainTabBar()
+//        // 撰写按钮的监听
+//        newTabBar.composeButton.addTarget(self, action: "composeButtonClick", forControlEvents: UIControlEvents.TouchUpInside)
+//        // 使用KVC设置值
+//        setValue(newTabBar, forKey: "tabBar")
         
         // 设置全局选中颜色
         tabBar.tintColor = UIColor.orangeColor()
@@ -44,9 +44,9 @@ class ABMainTabBarController: UITabBarController {
 //        addChildViewController(UINavigationController(rootViewController: messageVc))
         
         //中间控制
-//        let addVc = UIViewController()
+        let addVc = UIViewController()
 //        addChildViewController(addVc, title: "中间", imageName: "ff")
-//        addChildViewController(UINavigationController(rootViewController: addVc))
+        addChildViewController(UINavigationController(rootViewController: addVc))
         
         //发现
         let discoverVc = ABDiscoverViewController()
@@ -78,36 +78,36 @@ class ABMainTabBarController: UITabBarController {
     }
     
     
-//    override func viewWillAppear(animated: Bool) {
-//        super.viewWillAppear(animated)
-//        // 计算宽度
-//        let width = tabBar.bounds.width / CGFloat(5)
-//        // 设置撰写按钮的frame
-//        composeButton.frame = CGRect(x: width * 2, y: 0, width: width, height: tabBar.bounds.height)
-//        // 添加撰写
-//        tabBar.addSubview(composeButton)
-//        
-//    }
-//    
-//    // MARK: - 懒加载
-//    /// 撰写按钮
-//    lazy var composeButton: UIButton = {
-//        // 创建按钮
-//        let button = UIButton()
-//        
-//        // 设置按钮图片
-//        button.setImage(UIImage(named: "tabbar_compose_icon_add"), forState: UIControlState.Normal)
-//        button.setImage(UIImage(named: "tabbar_compose_icon_add_highlighted"), forState: UIControlState.Highlighted)
-//        
-//        // 设置按钮背景
-//        button.setBackgroundImage(UIImage(named: "tabbar_compose_button"), forState: UIControlState.Normal)
-//        button.setBackgroundImage(UIImage(named: "tabbar_compose_button_highlighted"), forState: UIControlState.Highlighted)
-//        
-//        // 监听点击
-//        button.addTarget(self, action: "composeButtonClick", forControlEvents: UIControlEvents.TouchUpInside)
-//        
-//        return button
-//    }()
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        // 计算宽度
+        let width = tabBar.bounds.width / CGFloat(5)
+        // 设置撰写按钮的frame
+        composeButton.frame = CGRect(x: width * 2, y: 0, width: width, height: tabBar.bounds.height)
+        // 添加撰写
+        tabBar.addSubview(composeButton)
+        
+    }
+    
+    // MARK: - 懒加载
+    /// 撰写按钮
+    lazy var composeButton: UIButton = {
+        // 创建按钮
+        let button = UIButton()
+        
+        // 设置按钮图片
+        button.setImage(UIImage(named: "tabbar_compose_icon_add"), forState: UIControlState.Normal)
+        button.setImage(UIImage(named: "tabbar_compose_icon_add_highlighted"), forState: UIControlState.Highlighted)
+        
+        // 设置按钮背景
+        button.setBackgroundImage(UIImage(named: "tabbar_compose_button"), forState: UIControlState.Normal)
+        button.setBackgroundImage(UIImage(named: "tabbar_compose_button_highlighted"), forState: UIControlState.Highlighted)
+        
+        // 监听点击
+        button.addTarget(self, action: "composeButtonClick", forControlEvents: UIControlEvents.TouchUpInside)
+        
+        return button
+    }()
     
 
 }
