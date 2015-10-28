@@ -22,12 +22,12 @@ class ABVisitorView: UIView {
     // MARK: - 按钮的点击事件
     // 注册
     func willRegister(){
-        print(__FUNCTION__)
+        // 通过代理来实现  点击事件
         visitorViewDelegate?.visitorViewWillRegister()
     }
     // 登陆
     func willLogin(){
-        print(__FUNCTION__)
+        // 通过代理来实现  点击事件
         visitorViewDelegate?.visitorViewWillLogin()
     }
     
@@ -237,6 +237,33 @@ class ABVisitorView: UIView {
         
         // 为转轮添加动画
         iconView.layer.addAnimation(animation, forKey: "HomeRotation")
+    }
+    
+    /// 暂停动画
+    func pauseAnimation(){
+        // 记录暂停时间
+        let pauseTime = iconView.layer.convertTime(CACurrentMediaTime(), fromLayer: nil)
+        
+        // 设置动画的速度为0
+        iconView.layer.speed = 0
+        
+        // 设置动画的偏移时间
+        iconView.layer.timeOffset = pauseTime
+    }
+    
+    /// 恢复动画
+    func resumeAnimation(){
+        // 获取动画暂停时间
+        let pauseTime = iconView.layer.timeOffset
+        
+        // 设置动画速为1
+        iconView.layer.speed = 1
+        iconView.layer.timeOffset = 0
+        iconView.layer.beginTime = 0
+        
+        let timeSincePause = iconView.layer.convertTime(CACurrentMediaTime(), fromLayer: nil)
+        iconView.layer.beginTime = timeSincePause
+        
     }
 
 }

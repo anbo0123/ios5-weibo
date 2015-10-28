@@ -72,6 +72,22 @@
 			path = microblog;
 			sourceTree = "<group>";
 		};
+		A2B9E9BB1BE0B0AB00F5D8EE /* OAuth【授权】 */ = {
+			isa = PBXGroup;
+			children = (
+				A2B9E9BC1BE0B0AB00F5D8EE /* Controller */,
+			);
+			name = "OAuth【授权】";
+			path = OAuth;
+			sourceTree = "<group>";
+		};
+		A2B9E9BC1BE0B0AB00F5D8EE /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
 		A2FBB3451BDE434900E1726D /* Classes */ = {
 			isa = PBXGroup;
 			children = (
@@ -111,6 +127,7 @@
 		A2FBB3491BDE434900E1726D /* Module【项目模块】 */ = {
 			isa = PBXGroup;
 			children = (
+				A2B9E9BB1BE0B0AB00F5D8EE /* OAuth【授权】 */,
 				A2FBB3521BDE434900E1726D /* Main【主要】 */,
 				A2FBB34E1BDE434900E1726D /* Home【主页】 */,
 				A2FBB3561BDE434900E1726D /* Message【信息】 */,

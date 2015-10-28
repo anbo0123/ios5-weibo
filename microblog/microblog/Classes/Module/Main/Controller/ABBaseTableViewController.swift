@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ABBaseTableViewController: UITableViewController,ABVisitorViewDelegate {
+class ABBaseTableViewController: UITableViewController {
     
     //设置用户的登陆的状态
     let userLogin = false
@@ -31,9 +31,18 @@ class ABBaseTableViewController: UITableViewController,ABVisitorViewDelegate {
         
         // 判断当前选中的控制器
         if self is ABHomeViewController {
+            
 //            print("ABHomeViewController")
             // 设置自动动画
             visitorView?.startRotationAnimation()
+            
+            // 监听应用退到后台
+            NSNotificationCenter.defaultCenter().addObserver(self, selector: "didEnterBackground", name: UIApplicationDidEnterBackgroundNotification, object: nil)
+            
+            // 监听应用进入前台
+            NSNotificationCenter.defaultCenter().addObserver(self, selector: "didBecomeActive", name: UIApplicationDidBecomeActiveNotification, object: nil)
+            
+            
         }else if self is ABMessageViewController {
 //            print("ABMessageViewController")
             // 设置当前控制View显示的内容
@@ -52,11 +61,24 @@ class ABBaseTableViewController: UITableViewController,ABVisitorViewDelegate {
         // 设置导航条上的左右两个Item
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: "注册", style: UIBarButtonItemStyle.Plain, target: self, action: "visitorViewWillRegister")
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "登陆", style: UIBarButtonItemStyle.Plain, target: self, action: "visitorViewWillLogin")
-        
     }
     
+    // MARK: - 监听方法
+    /// 应用退到后台
+    func didEnterBackground(){
+        (view as! ABVisitorView).pauseAnimation()
+    }
     
-    // MARK: - 按钮的点击事件
+    /// 应用进入前台
+    func didBecomeActive(){
+        (view as! ABVisitorView).resumeAnimation()
+    }
+    
+}
+
+// MARK: - ABBaseTableViewController扩展，实现 ABVisitorViewDelegate 协议
+// 扩展（作用是：便于代码的统一管理）
+extension ABBaseTableViewController: ABVisitorViewDelegate{
     /// Item 注册事件
     func visitorViewWillRegister(){
         print(__FUNCTION__)
@@ -65,5 +87,4 @@ class ABBaseTableViewController: UITableViewController,ABVisitorViewDelegate {
     func visitorViewWillLogin(){
         print(__FUNCTION__)
     }
-
 }
