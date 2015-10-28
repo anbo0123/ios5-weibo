@@ -78,6 +78,7 @@ class ABBaseTableViewController: UITableViewController {
 
 // MARK: - ABBaseTableViewController扩展，实现 ABVisitorViewDelegate 协议
 // 扩展（作用是：便于代码的统一管理）
+// 注意：在swift中，指定代理后，就必须要实现协议中的代理方法，否则就会报错
 extension ABBaseTableViewController: ABVisitorViewDelegate{
     /// Item 注册事件
     func visitorViewWillRegister(){
@@ -86,5 +87,12 @@ extension ABBaseTableViewController: ABVisitorViewDelegate{
     /// Item 登陆事件
     func visitorViewWillLogin(){
         print(__FUNCTION__)
+        
+        // 加载授权界面
+        let controller = ABOAuthViewController()
+        
+        // modal出授权界面
+        presentViewController(UINavigationController(rootViewController: controller), animated: true, completion: nil)
+        
     }
 }

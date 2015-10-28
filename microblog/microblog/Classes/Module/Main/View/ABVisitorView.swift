@@ -261,7 +261,9 @@ class ABVisitorView: UIView {
         iconView.layer.timeOffset = 0
         iconView.layer.beginTime = 0
         
-        let timeSincePause = iconView.layer.convertTime(CACurrentMediaTime(), fromLayer: nil)
+        // 计算暂停动画的时间差
+        let timeSincePause = iconView.layer.convertTime(CACurrentMediaTime(), fromLayer: nil) - pauseTime
+        // 设置恢复动画的开始时间为 暂停timeSincePause后  再开始动画
         iconView.layer.beginTime = timeSincePause
         
     }
