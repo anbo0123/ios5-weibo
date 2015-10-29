@@ -229,7 +229,7 @@ class ABVisitorView: UIView {
         let animation = CABasicAnimation(keyPath: "transform.rotation")
         // 设置动画相关属性
         animation.toValue = 2 * M_PI // 旋转角度
-        animation.duration = 10  // 持续时间
+        animation.duration = 20  // 持续时间
         animation.repeatCount = MAXFLOAT  // 循环次数
         
         // 完成动画时，不能立即移除动画，否则在切换tabBar或退出桌面，再切回首页时 动画会停止

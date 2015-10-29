@@ -10,6 +10,7 @@
 		0704EEF20D925671F8BF13EB /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5FAB4A30970C6668B692FBBB /* Pods.framework */; };
 		A254041A1BDE0C63006721BC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A25404191BDE0C63006721BC /* AppDelegate.swift */; };
 		A25404211BDE0C63006721BC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A25404201BDE0C63006721BC /* Assets.xcassets */; };
+		A28668B21BE121C800839314 /* ABNetworkTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = A28668B11BE121C800839314 /* ABNetworkTools.swift */; settings = {ASSET_TAGS = (); }; };
 		A2B9E9BE1BE1054A00F5D8EE /* ABOAuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2B9E9BD1BE1054A00F5D8EE /* ABOAuthViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		A2E2DE681BDE7F4800C3B598 /* ABVisitorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2E2DE671BDE7F4800C3B598 /* ABVisitorView.swift */; settings = {ASSET_TAGS = (); }; };
 		A2E2DE6C1BDE959900C3B598 /* ABBaseTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2E2DE6B1BDE959900C3B598 /* ABBaseTableViewController.swift */; settings = {ASSET_TAGS = (); }; };
@@ -28,6 +29,7 @@
 		A25404191BDE0C63006721BC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A25404201BDE0C63006721BC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A25404251BDE0C63006721BC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A28668B11BE121C800839314 /* ABNetworkTools.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ABNetworkTools.swift; sourceTree = "<group>"; };
 		A2B9E9BD1BE1054A00F5D8EE /* ABOAuthViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ABOAuthViewController.swift; sourceTree = "<group>"; };
 		A2E2DE671BDE7F4800C3B598 /* ABVisitorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ABVisitorView.swift; sourceTree = "<group>"; };
 		A2E2DE6B1BDE959900C3B598 /* ABBaseTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ABBaseTableViewController.swift; sourceTree = "<group>"; };
@@ -328,6 +330,7 @@
 		A2FBB35E1BDE434900E1726D /* Tool【工具类】 */ = {
 			isa = PBXGroup;
 			children = (
+				A28668B11BE121C800839314 /* ABNetworkTools.swift */,
 			);
 			name = "Tool【工具类】";
 			path = Tool;
@@ -472,6 +475,7 @@
 				A2FBB3661BDE4B3400E1726D /* ABMessageViewController.swift in Sources */,
 				A2E2DE6E1BDEA0BB00C3B598 /* ABMainTabBar.swift in Sources */,
 				A2E2DE6C1BDE959900C3B598 /* ABBaseTableViewController.swift in Sources */,
+				A28668B21BE121C800839314 /* ABNetworkTools.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
