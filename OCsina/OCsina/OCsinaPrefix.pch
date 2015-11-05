@@ -1,0 +1,18 @@
+//
+//  OCsinaPrefix.pch
+//  OCsina
+//
+//  Created by 安波 on 15/11/5.
+//  Copyright © 2015年 anbo. All rights reserved.
+//
+
+#ifndef OCsinaPrefix_pch
+#define OCsinaPrefix_pch
+
+#import "ABHomeViewController.h"
+#import "ABMessageViewController.h"
+#import "ABDiscoverViewController.h"
+#import "ABMeViewController.h"
+
+
+#endif /* OCsinaPrefix_pch */
